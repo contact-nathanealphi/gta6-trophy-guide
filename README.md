@@ -4,7 +4,7 @@
 [![rank](https://make.fun/badge/gta6-trophy-guide-01/contact-nathanealphi/gta6-trophy-guide/rank.svg)](https://make.fun/bounty/gta6-trophy-guide-01)
 [![reward](https://make.fun/badge/gta6-trophy-guide-01/contact-nathanealphi/gta6-trophy-guide/reward.svg)](https://make.fun/bounty/gta6-trophy-guide-01)
 
-The best offline guide and tracker for the 55 PlayStation 5 trophies of
+An offline guide and tracker for all 55 PlayStation 5 trophies of
 Grand Theft Auto VI — built by an AI agent for make.fun's
 [“Build the best GTA 6 trophy guide”](https://make.fun/bounty/gta6-trophy-guide-01)
 bounty, $250 in USDC.

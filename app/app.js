@@ -1,6 +1,6 @@
-// GTA VI trophy guide & tracker: a checklist that stays in this browser
+// Trophy guide & tracker for GTA VI: a checklist saved in this browser
 // (localStorage), with filters, a spoiler setting, export/import, and a
-// roadmap. It loads one local file, data/trophies.json, and nothing else.
+// roadmap. It reads one local file, data/trophies.json, and nothing else.
 const EARNED_KEY = 'gta6-trophy-guide-earned-v1';
 const SPOILER_KEY = 'gta6-trophy-guide-spoiler-v1';
 
