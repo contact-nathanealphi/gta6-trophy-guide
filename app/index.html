@@ -3,23 +3,71 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GTA VI trophy checklist</title>
+<title>GTA VI Trophy Guide &amp; Tracker — All 55 PS5 Trophies</title>
+<link rel="icon" href="data:,">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <h1>GTA VI trophy checklist</h1>
-  <p id="progress">0 of 55 earned</p>
+<header class="hero">
+  <div class="hero-text">
+    <p class="kicker">Grand Theft Auto VI · PlayStation 5</p>
+    <h1>Trophy Guide &amp; Tracker</h1>
+    <p class="sub">All 55 official trophies — what each one asks, how to get it, how rare it is, and what to do first. Tick them off as you earn them; your progress stays in this browser.</p>
+  </div>
+  <div class="progress-card" id="progressCard">
+    <div class="big"><span id="earnedCount">0</span><span class="of"> / 55</span></div>
+    <div class="bar"><div id="barFill"></div></div>
+    <p id="progressText">0% · 0 points</p>
+    <p id="rarestText" class="muted"></p>
+  </div>
 </header>
-<div class="controls">
-  <label>Grade <select id="grade"><option value="all">All</option><option value="platinum">Platinum</option><option value="gold">Gold</option><option value="silver">Silver</option><option value="bronze">Bronze</option></select></label>
+
+<section id="roadmap" class="roadmap">
+  <h2>Road to Platinum</h2>
+  <ol>
+    <li><b>Play the story.</b> Chapters 1–4, the final mission and every story mission — 17 trophies, all unmissable. Just finish the story.</li>
+    <li><b>Do the possibly-missable ones when the chance comes.</b> 8 trophies are tied to one-time partner or story moments, flagged ⚠ below. Do them the first time the moment appears.</li>
+    <li><b>Finish the side strands.</b> Andy, Kenton, Billy, Randy and Tyrone, plus 8 stranger strands across Leonida.</li>
+    <li><b>Activities &amp; races.</b> Shooting Range golds, drone races, fishing, arcade games, meditation spots and stunts.</li>
+    <li><b>Collectibles &amp; exploration.</b> Card sets, WAiNK spots, vehicles, all 52 areas of Leonida, and every garage.</li>
+    <li><b>Money, then 100%.</b> Launder $250,000 in Marked Bills, spend $100,000 in shops, then push to 100% completion — the last gold before the platinum.</li>
+  </ol>
+</section>
+
+<div class="controls" id="controls">
+  <input id="search" type="search" placeholder="Search a trophy…" aria-label="Search trophies">
+  <label>Kind
+    <select id="kind">
+      <option value="all">All kinds</option>
+      <option value="story">Story</option>
+      <option value="activities">Activities</option>
+      <option value="collectibles">Collectibles</option>
+      <option value="completion">Completion</option>
+    </select>
+  </label>
+  <label>Grade
+    <select id="grade">
+      <option value="all">All grades</option>
+      <option value="platinum">Platinum</option>
+      <option value="gold">Gold</option>
+      <option value="silver">Silver</option>
+      <option value="bronze">Bronze</option>
+    </select>
+  </label>
+  <label class="check"><input id="missableOnly" type="checkbox"> Missable only</label>
+  <label class="check"><input id="hideEarned" type="checkbox"> Hide earned</label>
+  <label class="check"><input id="spoiler" type="checkbox"> Hide story spoilers</label>
   <button id="export" type="button">Export progress</button>
   <label class="import">Import progress <input id="import" type="file" accept="application/json"></label>
+  <button id="reset" type="button">Reset</button>
 </div>
-<table>
-  <thead><tr><th>Earned</th><th>Trophy</th><th>Grade</th><th>How to get it</th></tr></thead>
-  <tbody id="rows"></tbody>
-</table>
+
+<p id="countLine" class="count-line"></p>
+<main id="list"></main>
+
+<footer>
+  <p><b>Sources.</b> Trophy names, descriptions and grades: the official 55-trophy list (Exophase, 18 Nov 2026); grades cross-checked on PSNProfiles. Earn rates: Exophase, refresh 3, 20 Nov 2026 (06:37 UTC). Guides are written from the official descriptions; counts (250 stunts, 42 Range challenges, 14 drone locations, 18 meditation spots, 52 areas) come from the game’s trophy data. “Possibly missable” is flagged only where the official description itself describes a one-time story or partner moment. No Rockstar artwork or logos are used. This guide works fully offline — it loads nothing from the network.</p>
+</footer>
 <script type="module" src="app.js"></script>
 </body>
 </html>

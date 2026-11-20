@@ -1,7 +1,143 @@
-body { font-family: Arial, sans-serif; margin: 24px; color: #222; }
-header { display: flex; justify-content: space-between; align-items: baseline; }
-.controls { display: flex; gap: 16px; margin: 12px 0; align-items: center; }
-.import input { font-size: 12px; }
-table { border-collapse: collapse; width: 100%; }
-th, td { border-bottom: 1px solid #ddd; padding: 6px 8px; text-align: left; vertical-align: top; white-space: pre-line; }
-th { background: #f2f2f2; }
+/* GTA VI trophy guide: dark theme, sunset header, plain readable cards.
+   No external fonts or images — everything here is CSS, so the guide
+   works fully offline. */
+* { box-sizing: border-box; }
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  margin: 0;
+  color: #f2ede6;
+  background: #14101c;
+  line-height: 1.45;
+}
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 28px 24px 24px;
+  background: linear-gradient(115deg, #1b0f2e 0%, #5b2a6e 38%, #c94b6d 68%, #ff8a5c 100%);
+  color: #fff;
+}
+.kicker { margin: 0 0 6px; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.85; }
+.hero h1 { margin: 0 0 8px; font-size: 34px; line-height: 1.1; }
+.hero-text { max-width: 640px; }
+.sub { margin: 0; font-size: 15px; opacity: 0.95; }
+.progress-card {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 12px;
+  padding: 14px 18px;
+  min-width: 260px;
+}
+.big { font-size: 34px; font-weight: 700; }
+.big .of { font-size: 18px; font-weight: 400; opacity: 0.8; }
+.bar { height: 10px; border-radius: 5px; background: rgba(255, 255, 255, 0.25); margin: 8px 0; overflow: hidden; }
+.bar div { height: 100%; width: 0%; background: #ffd166; border-radius: 5px; }
+.progress-card p { margin: 4px 0; font-size: 14px; }
+.muted { opacity: 0.85; }
+
+.roadmap { padding: 20px 24px 4px; max-width: 980px; }
+.roadmap h2 { margin: 0 0 8px; font-size: 22px; color: #ffd166; }
+.roadmap ol { margin: 0; padding-left: 22px; }
+.roadmap li { margin: 6px 0; font-size: 15px; }
+.roadmap li b { color: #fff; }
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  padding: 16px 24px;
+  position: sticky;
+  top: 0;
+  background: #14101c;
+  border-bottom: 1px solid #2e2540;
+  z-index: 5;
+}
+.controls input[type="search"] {
+  flex: 1 1 200px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #4a3d66;
+  background: #1f1830;
+  color: #f2ede6;
+  font-size: 14px;
+}
+.controls select {
+  padding: 7px 8px;
+  border-radius: 8px;
+  border: 1px solid #4a3d66;
+  background: #1f1830;
+  color: #f2ede6;
+  font-size: 14px;
+}
+.controls label { font-size: 14px; display: flex; gap: 6px; align-items: center; }
+.controls button, .import {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #4a3d66;
+  background: #2a2140;
+  color: #f2ede6;
+  font-size: 14px;
+  cursor: pointer;
+}
+.controls button:hover, .import:hover { background: #3a2d55; }
+.import input { display: none; }
+.count-line { padding: 0 24px; color: #b8adcc; font-size: 13px; }
+
+#list { padding: 0 24px 24px; display: grid; gap: 10px; max-width: 1100px; }
+.card {
+  background: #1f1830;
+  border: 1px solid #332a4d;
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+.card.earned { border-color: #3f7d4e; background: #1a2a1e; }
+.card-head { display: flex; gap: 12px; align-items: flex-start; }
+.card-head input[type="checkbox"] { width: 20px; height: 20px; margin-top: 2px; accent-color: #ffd166; flex: none; }
+.card-title { flex: 1; min-width: 0; }
+.card-title h3 { margin: 0 0 4px; font-size: 17px; }
+.meta { margin: 0; font-size: 13px; color: #c9bfe0; }
+.badge {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+.grade-platinum { background: #e8f6ff; color: #0b3d5c; }
+.grade-gold { background: #ffd166; color: #5c3a00; }
+.grade-silver { background: #d7dbe2; color: #333a45; }
+.grade-bronze { background: #d08a4e; color: #3d1e00; }
+.tag {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  background: #332a4d;
+  color: #d9cff0;
+  text-transform: capitalize;
+}
+.tag.secret { background: #4d2a4d; color: #f0c9f0; }
+.rarity { color: #ffd166; }
+.warn { color: #ff9d6b; font-weight: 700; }
+.points { color: #9a8fc0; }
+.detail-toggle {
+  flex: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid #4a3d66;
+  background: #2a2140;
+  color: #f2ede6;
+  font-size: 13px;
+  cursor: pointer;
+}
+.desc { margin: 8px 0 0 32px; font-size: 14px; color: #ddd5ee; }
+.detail { display: none; margin: 10px 0 0 32px; border-top: 1px dashed #4a3d66; padding-top: 8px; font-size: 14px; }
+.card.open .detail { display: block; }
+.detail p { margin: 6px 0; }
+.detail .source { color: #9a8fc0; font-size: 13px; }
+footer { padding: 8px 24px 28px; color: #b8adcc; font-size: 13px; max-width: 1100px; }
+footer b { color: #ddd5ee; }
